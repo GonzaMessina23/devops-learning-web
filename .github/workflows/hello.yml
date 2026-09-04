@@ -1,0 +1,15 @@
+name: Mi primer CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+      runs-on: ubuntu-latest
+      
+      steps:
+        - name: Hola
+          run: echo "Estoy aprendiendo GitHub Actions"
+
