@@ -8,8 +8,11 @@ on:
 jobs:
   test:
       runs-on: ubuntu-latest
-      
+
       steps:
         - name: Hola
           run: echo "Estoy aprendiendo GitHub Actions"
+    
+        - name: Segundo step
+          run: echo "Este es mi segundo step"
 
