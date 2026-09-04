@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: test -f src/index.html
+
+      - name: Check CSS file
+        run: test -f src/style.css
+
+      - name: Check HTML structure
+        run: grep -q "<html" src/index.html
+
+      - name: Check CSS content
+        run: test -s src/style.css
