@@ -1,0 +1,12 @@
+FROM nginx:alpine
+
+COPY src/index.html /usr/share/nginx/html/index.html
+COPY src/style.css /usr/share/nginx/html/style.css
+
+LABEL app="devops-learning-web"
+LABEL version="1.0"
+
+EXPOSE 80
+
+HEALTHCHECK --interval=5s --timeout=3s --retries=2 \
+   CMD wget --spider http://localhost || exit 1

@@ -1,0 +1,7 @@
+FROM alpine
+
+RUN adduser -D app
+
+USER app
+
+CMD ["whoami"]
