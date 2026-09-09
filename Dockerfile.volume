@@ -1,0 +1,7 @@
+FROM alpine
+
+RUN mkdir /data
+
+VOLUME /data
+
+CMD ["sh", "-c", "echo Hola > /data/test.txt && tail -f /dev/null"]
