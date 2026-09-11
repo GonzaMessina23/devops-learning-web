@@ -1,0 +1,14 @@
+FROM alpine AS builder
+
+WORKDIR /build
+
+RUN echo "<h1>Generado por el builder</h1>" > index.html
+RUN echo "body { font-family: Arial; }" > style.css
+
+
+FROM nginx:alpine
+
+COPY --from=builder /build/index.html /usr/share/nginx/html/index.html
+COPY --from=builder /build/style.css /usr/share/nginx/html/style.css
+
+EXPOSE 80
