@@ -1,0 +1,12 @@
+services:
+  app:
+    image: alpine
+    environment:
+      APP_ENV: ${APP_ENV}
+      APP_NAME: ${APP_NAME}
+    command: ["sh", "-c", "echo $APP_NAME - $APP_ENV && sleep 3600"]
+    volumes:
+      - datos:/data
+
+volumes:
+  datos:

@@ -1,10 +1,9 @@
 services:
-
-  web:
-    build: .
-    ports:
-      - "8080:80"
-
-  client:
+  app:
     image: alpine
-    command: ["sleep", "3600"]
+    command: ["sh", "-c", "echo 'Dato persistente' > /data/mensaje.txt && sleep 3600"]
+    volumes:
+      - datos:/data
+
+volumes:
+  datos:
