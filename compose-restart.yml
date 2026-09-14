@@ -1,0 +1,5 @@
+services:
+  app:
+    image: alpine
+    command: ["sh", "-c", "echo 'Iniciando aplicación'; sleep 5"]
+    restart: always
