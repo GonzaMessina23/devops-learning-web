@@ -1,0 +1,11 @@
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
